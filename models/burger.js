@@ -12,8 +12,8 @@ let burgers = {
         return orm.insertOne('burgers', 'burger_name', burgerName);
     },
 
-    updateOne: function(newBurger, oldBurger){
-        return orm.updateOne(newBurger, oldBurger);
+    updateOne: function(burgerName){
+        return orm.updateOne('burgers', 'devoured', 1, 'burger_name', burgerName);
     }
 }
 

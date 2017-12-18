@@ -25,10 +25,10 @@ let orm = {
         });
     },
 
-    updateOne: function(tableName, columnName, newBurger, oldBurger, cb){
+    updateOne: function(tableName, columnName, newValue, columnID, columnValue, cb){
         let sql = 'UPDATE ?? SET ?? = ? WHERE ?? = ?'
 
-        con.query(sql, [tableName, columnName, newBurger, columnName, oldBurger], function (err, result) {
+        con.query(sql, [tableName, columnName, newValue, columnID, columnValue], function (err, result) {
             if (err) throw err;
             
             if(cb){

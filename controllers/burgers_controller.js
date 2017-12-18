@@ -10,11 +10,23 @@ function route(app){
     app.get("/allBurgers", function(req, res) {
         burgers.selectAll(cb, res);
     });
+
+    app.post("/addBurger", function(req, res) {
+        console.log(req.body.burger_name);
+        burgers.insertOne(req.body.burger_name);
+    });
+
+    app.post("/devourBurger", function(req, res) {
+        console.log(req.body.burger_name);
+        burgers.updateOne(req.body.burger_name);
+    });
 }
 
 function cb(result, res){
     console.log(result[0].burger_name);
-    res.render("index", {burgers: result[0].burger_name});
+    res.render("index", {
+        burgers: result,
+    });
 }
 
 module.exports = route;
