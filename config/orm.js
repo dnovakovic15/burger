@@ -1,14 +1,14 @@
 let con = require('./connection.js');
 
 let orm = {
-    selectAll: function(tableName, cb){
+    selectAll: function(tableName, cb, res){
         let sql = 'SELECT * FROM ??'
 
         con.query(sql, [tableName], function (err, result) {
             if (err) throw err;
 
             if(cb){
-                cb(result);
+                cb(result, res);
             }
         });
     },

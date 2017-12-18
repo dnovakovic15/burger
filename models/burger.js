@@ -1,8 +1,11 @@
 let orm = require('../config/orm.js');
 
 let burgers = {
-    selectAll: function(){
-        return orm.selectAll('burgers');
+    selectAll: function(cb, res){
+        if(cb){
+            console.log('We HERE');
+            orm.selectAll('burgers', cb, res);
+        }
     },
 
     insertOne: function(burgerName){
