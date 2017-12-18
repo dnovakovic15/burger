@@ -6,7 +6,6 @@ let orm = {
 
         con.query(sql, [tableName], function (err, result) {
             if (err) throw err;
-            console.log("Result: " + result);
 
             if(cb){
                 cb(result);
@@ -19,7 +18,6 @@ let orm = {
 
         con.query(sql, [tableName, columnName, columnValue], function (err, result) {
             if (err) throw err;
-            console.log("Result: " + result);
             
             if(cb){
                 cb(result);
@@ -27,12 +25,11 @@ let orm = {
         });
     },
 
-    updateOne: function(newBurger, oldBurger, cb){
-        let sql = 'UPDATE burgers SET burger_name = ? WHERE burger_name = ?'
+    updateOne: function(tableName, columnName, newBurger, oldBurger, cb){
+        let sql = 'UPDATE ?? SET ?? = ? WHERE ?? = ?'
 
-        con.query(sql, [newBurger, oldBurger], function (err, result) {
+        con.query(sql, [tableName, columnName, newBurger, columnName, oldBurger], function (err, result) {
             if (err) throw err;
-            console.log("Result: " + result);
             
             if(cb){
                 cb(result);
