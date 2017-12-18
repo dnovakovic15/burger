@@ -1,4 +1,4 @@
-let orm = require('./orm.js');
+let orm = require('../config/orm.js');
 
 let burgers = {
     selectAll: function(){
