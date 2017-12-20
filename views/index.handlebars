@@ -73,6 +73,12 @@
         text-align: center;
         font-size: 21px;
     }
+    .burgerSubtraction{
+        background-color: gray;
+        margin-bottom: 2px;
+        text-align: center;
+        font-size: 21px;
+    }
   }
 </style>
 
@@ -122,7 +128,7 @@
             $('.devourBtn').on('click', function(){
                 devourBurger($('.' + this.id).text());
 
-                $('.fullBurger').append('<div>' + $('.' + this.id).text() + '</div>');
+                $('.fullBurger').append('<div class="burgerSubtraction">' + $('.' + this.id).text() + '</div>');
 
                 $('#' + this.id).remove();
                 $('.' + this.id).remove();
